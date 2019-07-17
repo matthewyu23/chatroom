@@ -1,5 +1,6 @@
 import socket
 import threading
+import os
 
 clientList = []
 newThreads = []
