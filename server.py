@@ -7,7 +7,8 @@ allActiveThreads = []
 messages = []
 
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-s.bind((socket.gethostname(), 40000))
+s.bind(("172.19.17.33", 40000))
+#s.bind((socket.gethostname(), 40000))
 print("Server active")
 s.listen(5)
 
