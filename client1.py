@@ -15,7 +15,8 @@ def sendInput():
 
 def recieveAndPrint(): 
     while True: 
-        print(s.recv(2048).decode("UTF-8"))
+        messageFromServer = s.recv(2048).decode("UTF-8")
+        print(messageFromServer)
 
 newThreads.append(threading.Thread(target=sendInput))
 newThreads.append(threading.Thread(target=recieveAndPrint))

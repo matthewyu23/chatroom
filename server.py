@@ -17,6 +17,7 @@ def listenAndStoreClients(): #listens for new clients, stores new clients in a l
         clientList.append((c,a))
         print(f"{a[1]} has connected")
         newThreads.append(threading.Thread(target=recieveFromThisClient, args=(c,a,))) #creates new thread for this specific client
+        c.send(bytes("ID:" + str(a[1]),"UTF-8"))
     
 
 
