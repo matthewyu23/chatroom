@@ -4,7 +4,8 @@ import threading
 newThreads = []
 allActiveThreads = []
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-s.connect((socket.gethostname(), 40000))
+s.connect(("172.19.17.33", 40000))
+#s.connect((socket.gethostname(), 40000))
 print("Connected to server")
 
 
