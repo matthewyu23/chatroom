@@ -16,6 +16,8 @@ def sendInput():
 def recieveAndPrint(): 
     while True: 
         messageFromServer = s.recv(2048).decode("UTF-8")
+        if messageFromServer[0:3] == "ID:": 
+                ID = messageFromServer[3:8]
         print(messageFromServer)
 
 newThreads.append(threading.Thread(target=sendInput))
