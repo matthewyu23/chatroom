@@ -10,7 +10,7 @@ s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 s.bind((socket.gethostname(), 40000))
 #s.bind((socket.gethostname(), 40000))
 print("Server active")
-s.listen(5)
+s.listen(10)
 
 def listenAndStoreClients(): #listens for new clients, stores new clients in a list called clientList
     while True: 
