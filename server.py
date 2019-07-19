@@ -7,7 +7,7 @@ allActiveThreads = []
 messages = []
 
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-s.bind(("172.19.17.33", 40000))
+s.bind((socket.gethostname(), 40000))
 #s.bind((socket.gethostname(), 40000))
 print("Server active")
 s.listen(5)
@@ -18,7 +18,7 @@ def listenAndStoreClients(): #listens for new clients, stores new clients in a l
         clientList.append((c,a))
         print(f"{a[1]} has connected")
         newThreads.append(threading.Thread(target=recieveFromThisClient, args=(c,a,))) #creates new thread for this specific client
-        c.send(bytes("ID:" + str(a[1]),"UTF-8"))
+        c.send(bytes("ID:" + str(len(clientList)),"UTF-8"))
     
 
 
@@ -26,8 +26,7 @@ def recieveFromThisClient(c,a): #recieves and stores incomming messages to the m
     while True: 
         incomingMessage = c.recv(2048).decode("utf-8")
         if incomingMessage != "": 
-            fullMessage = str(a[1]) + " " + incomingMessage
-            messages.append(fullMessage)
+            messages.append(incomingMessage)
         
 
 
